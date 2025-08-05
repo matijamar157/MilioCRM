@@ -1,0 +1,9 @@
+﻿namespace AFuturaCRMV2.Models.DTO
+{
+    public class CreateBossRequestDto
+    {
+        public bool Company { get; set; }
+        public bool Employee { get; set; }
+        public string BossEmail { get; set; }
+    }
+}

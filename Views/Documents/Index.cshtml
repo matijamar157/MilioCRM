@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AFuturaCRMV2.Models.Documents>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mx-auto text-center">
+    <br />
+    <h1>All documents</h1>
+
+                        <button class="btn btn-primary">
+                            <b>
+                                <a asp-action="Create" style="color: white;">Create a new document</a>
+                            </b>
+                        </button>
+                        <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Date Uploaded
+                </th>
+                <th>
+                    Customer
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Version)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Comment)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DocumentType.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateUploaded)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Version)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                            <button class="btn btn-success">
+                                <b>
+                                    <a asp-action="Details" asp-route-id="@item.Id" style="color: white;">Download</a>
+                                </b>
+                            </button>
+                            <button class="btn btn-danger">
+                                <b>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" style="color: white;">Delete</a>
+                                </b>
+                            </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<br />
+<hr />
+<br />

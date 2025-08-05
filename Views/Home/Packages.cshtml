@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Log in";
+}
+<style>
+    .no-js #loader {
+        display: none;
+    }
+
+    .js #loader {
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
+
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+    }
+
+    .pricingTable {
+        font-family: 'Mukta', sans-serif;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+        .pricingTable:before {
+            content: '';
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+            position: absolute;
+            left: 0;
+            top: 100px;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .pricingTable .pricingTable-header {
+            background: linear-gradient(#36D1DC, #5B86E5);
+            width: 200px;
+            height: 200px;
+            padding: 60px 15px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+        }
+
+        .pricingTable .title {
+            color: #272727;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+        }
+
+        .pricingTable .price-value {
+            color: #fff;
+        }
+
+            .pricingTable .price-value .amount {
+                font-size: 34px;
+                font-weight: 500;
+                line-height: 50px;
+            }
+
+            .pricingTable .price-value .amount-sm {
+                font-size: 16px;
+                font-weight: 400;
+                margin: -2px 0 0;
+                vertical-align: top;
+                display: inline-block;
+            }
+
+        .pricingTable .pricing-content {
+            padding: 0;
+            margin: 0 0 15px;
+            list-style: none;
+        }
+
+            .pricingTable .pricing-content li {
+                color: #333;
+                font-size: 20px;
+                font-weight: 500;
+                text-transform: capitalize;
+                line-height: 25px;
+                padding-bottom: 10px;
+                margin: 0 0 12px;
+                border-bottom: 2px solid #e7e7e7;
+            }
+
+                .pricingTable .pricing-content li:last-child {
+                    margin-bottom: 0;
+                }
+
+        .pricingTable .pricingTable-signup {
+            background: linear-gradient(#36D1DC, #5B86E5);
+            padding: 100px 10px 20px;
+            margin: 0 -20px;
+            clip-path: polygon(50% 45%, 101% 0, 101% 100%, 0 100%, 0 0);
+        }
+
+            .pricingTable .pricingTable-signup a {
+                color: #fff;
+                background: #272727;
+                font-size: 16px;
+                font-weight: 300;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 2px 30px 0;
+                border: 2px solid transparent;
+                border-radius: 10px;
+                display: inline-block;
+                transition: all 0.5s;
+            }
+
+                .pricingTable .pricingTable-signup a:hover {
+                    color: #272727;
+                    background: #fff;
+                    text-shadow: 4px 4px 0 #e7e7e7;
+                    border-color: #272727;
+                }
+
+        .pricingTable.green .pricingTable-header,
+        .pricingTable.green .pricingTable-signup {
+            background: linear-gradient(#38ef7d, #11998e);
+        }
+
+    .copyright {
+        padding: 28px 0;
+        margin-top: 55px;
+        background-color: #202020;
+        border-radius: 10px;
+    }
+
+        .copyright span,
+        .copyright a {
+            color: #878787;
+            -webkit-transition: all 0.3s linear;
+            -o-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+        }
+
+            .copyright a:hover {
+                color: #007bff;
+            }
+
+    .copyright-menu ul {
+        text-align: right;
+        margin: 0;
+    }
+
+    .copyright-menu li {
+        display: inline-block;
+        padding-left: 20px;
+    }
+
+    .back-to-top {
+        position: relative;
+        z-index: 2;
+    }
+
+        .back-to-top .btn-dark {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            padding: 0;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2e2e2e;
+            border-color: #2e2e2e;
+            display: none;
+            z-index: 999;
+            -webkit-transition: all 0.3s linear;
+            -o-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+        }
+
+            .back-to-top .btn-dark:hover {
+                cursor: pointer;
+                background: #FA6742;
+                border-color: #FA6742;
+            }
+
+    }
+</style>
+
+<div class="alert alert-dismissible alert-info">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>ASYNC CRM</strong> is an application that helps companies have their clients and documents in one place. You have extended the free trial of your company. Please choose one of the packages.
+</div>
+<div class="demo" id="packages">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="1000">
+                <div class="pricingTable">
+                    <div class="pricingTable-header">
+                        <h3 class="title">BASIC</h3>
+                        <div class="price-value">
+                            <span class="amount">39€/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-content">
+                        <li>100 clients maximum</li>
+                        <li>Maximum 3 users per company</li>
+                    </ul>
+                    <div class="pricingTable-signup">
+                        <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="ActivateBasicStripe" target="_blank">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="1000">
+                <div class="pricingTable">
+                    <div class="pricingTable-header">
+                        <h3 class="title">PREMIUM</h3>
+                        <div class="price-value">
+                            <span class="amount">49€/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-content">
+                        <li>500 clients maximum</li>
+                        <li>30 days free</li>
+                        <li>Unlimited users in company</li>
+                    </ul>
+                    <div class="pricingTable-signup">
+                        <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="ActivatePremiumStripe" target="_blank">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4" data-aos="fade-left" data-aos-duration="1000">
+                <div class="pricingTable">
+                    <div class="pricingTable-header">
+                        <h3 class="title">GOLD</h3>
+                        <div class="price-value">
+                            <span class="amount">59$/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-content">
+                        <li>Unlimited number of clients</li>
+                        <li>30 days free</li>
+                        <li>Unlimited users in company</li>
+                    </ul>
+                    <div class="pricingTable-signup">
+                        <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="ActivateGoldStripe" target="_blank">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

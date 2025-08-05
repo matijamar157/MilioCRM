@@ -1,0 +1,49 @@
+﻿@model AFuturaCRMV2.Models.Documents
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="mx-auto text-center">
+
+    <h1>Create a document</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="CustomerId" class="control-label">Pick a customer</label>
+                    <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="DocumentTypeId" class="control-label">Type of document</label>
+                    <select asp-for="DocumentTypeId" class="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="Version" class="control-label"></label>
+                    <input asp-for="Version" class="form-control" />
+                    <span asp-validation-for="Version" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="Comment" class="control-label"></label>
+                    <input asp-for="Comment" class="form-control" />
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <input type="file" name="file" />
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,83 @@
+﻿@model AFuturaCRMV2.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="mx-auto text-center">
+
+    <h1>Create new customer</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="Owner" class="control-label"></label>
+                    <input asp-for="Owner" class="form-control" />
+                    <span asp-validation-for="Owner" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="TelephoneNumber" class="control-label">Contact number</label>
+                    <input asp-for="TelephoneNumber" class="form-control" />
+                    <span asp-validation-for="TelephoneNumber" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="EmailAddress" class="control-label">Email</label>
+                    <input asp-for="EmailAddress" class="form-control" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="CustomerTypeId" class="control-label">Customer type</label>
+                    <select asp-for="CustomerTypeId" class="form-control" asp-items="ViewBag.CustomerTypeId"></select>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="CustomerStatusId" class="control-label">Customer status</label>
+                    <select asp-for="CustomerStatusId" class="form-control" asp-items="ViewBag.CustomerStatusId"></select>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="DealValue" class="control-label">Deal value</label>
+                    <input asp-for="DealValue" class="form-control" />
+                    <span asp-validation-for="DealValue" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="Website" class="control-label"></label>
+                    <input asp-for="Website" class="form-control" />
+                    <span asp-validation-for="Website" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <label asp-for="DateOfLatestMeeting" class="control-label">Date of latest meeting</label>
+                    <input asp-for="DateOfLatestMeeting" class="form-control" />
+                    <span asp-validation-for="DateOfLatestMeeting" class="text-danger"></span>
+                </div><br />
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="PriorityLead" /> Priority Lead
+                    </label>
+                </div><br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<hr />
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
